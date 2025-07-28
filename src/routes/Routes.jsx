@@ -10,15 +10,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <CourseDetails></CourseDetails>,
-            },
-            {
-                path: "/ielts-course/",
-                element: <h1>About Page</h1>,
-            },
-            {
-                path: "*",
-                element: <h1>Not Found </h1>,
-            },
+            }
         ]
     }
 ]);

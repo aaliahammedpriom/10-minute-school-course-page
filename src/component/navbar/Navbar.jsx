@@ -1,8 +1,14 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+
 export default function Navbar() {
+    const {lang , setLang} = useContext(AuthContext)
+    console.log(lang)
     let links = <>
         <li><a>Submenu 1</a></li>
         <li><a>Submenu 2</a></li>
     </>
+
     return (
         <div className="navbar lg:px-[7vw] bg-base-100 shadow-sm">
             <div className="navbar-start">
