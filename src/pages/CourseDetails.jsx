@@ -33,7 +33,6 @@ const CourseDetails = () => {
     }, [lang]);
 
     let tabs = [];
-    const [activeTab, setActiveTab] = useState([]);
     if (!course) return <div className="text-white p-6">Loading...</div>;
     tabs = course.sections.filter(item => item.name && item.values.length > 0).map(item => ({ name: item.name, type: item.type }))
 
@@ -41,7 +40,7 @@ const CourseDetails = () => {
         <div >
             <Banner course={course}></Banner>
             {/* scrollable tab */}
-            <div className='sticky top-16 z-50 carousel bg-white border-b w-full md:w-[44vw] xl:w-[40vw]  2xl:w-[40vw] md:ml-5 lg:ml-20 xl:ml-40 '>
+            <div className='sticky top-16 z-90 carousel bg-white border-b w-full md:w-[44vw] xl:w-[40vw]  2xl:w-[40vw] md:ml-5 lg:ml-20 xl:ml-40 '>
                 {tabs.map((tab, idx) => (
                     <a
                         key={idx}
