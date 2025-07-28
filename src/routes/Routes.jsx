@@ -1,16 +1,20 @@
-import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "../layouts/Main";
 import CourseDetails from "../pages/CourseDetails";
 
-export default function AppRoutes() {
-  return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Main />}>
-          <Route index element={<CourseDetails />} />
-        </Route>
-      </Routes>
-    </HashRouter>
-  );
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Main></Main>,
+        children: [
+            {
+                path: "/10-minute-school-course-page/",
+                element: <CourseDetails></CourseDetails>,
+            }
+        ]
+    }
+]);
+
+export default function Routes() {
+    return <RouterProvider router={router} />;
 }
