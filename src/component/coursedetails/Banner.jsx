@@ -1,7 +1,7 @@
 import { FaStar } from "react-icons/fa";
 
-const Banner = ({course}) => {
-   
+const Banner = ({ course }) => {
+
 
     return (
         <div className="bg-gradient-to-b from-[#0d0829] to-[#130c41] text-white py-15 px-6 md:px-20 md:flex gap-5 relative h-[40vh]">
@@ -10,8 +10,6 @@ const Banner = ({course}) => {
                 <h1 className="text-2xl sm:text-3xl font-bold mb-3">
                     {course.title}
                 </h1>
-
-                {/* rating */}
                 <div className="flex items-center space-x-2 mb-3">
                     {[...Array(5)].map((_, i) => (
                         <FaStar key={i} className="text-yellow-400" />
@@ -71,7 +69,7 @@ const Banner = ({course}) => {
                             </a>
                         ))}
                     </div>
-                    
+
                 </div>
 
 
@@ -80,13 +78,13 @@ const Banner = ({course}) => {
                     {/* Price Info */}
                     <div className="flex items-center gap-2 mb-2">
                         <span className="text-xl font-bold text-green-600">
-                            ৳{course?.price?.discounted_price}
+                            ৳3850
                         </span>
                         <span className="line-through text-gray-500">
-                            ৳{course?.price?.original_price}
+                            ৳5000
                         </span>
                         <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">
-                            {course?.price?.discount_text || "ছাড়"}
+                            "ছাড়"
                         </span>
                     </div>
 
@@ -100,14 +98,14 @@ const Banner = ({course}) => {
                         {course.checklist.map((item, index) => (
                             <div key={index} className="flex items-center gap-2">
 
-                                <span className="flex gap-2"><img src={item.icon} alt="" />{item.text}</span>
+                                <span className="flex gap-2 items-center"><img className="h-[30px]" src={item.icon} alt="" />{item.text}</span>
                             </div>
                         ))}
                     </div>
                 </div>
-                <p className="justify-between hidden mt-4 text-sm text-center text-gray-400 md:flex md:flex-col lg:flex lg:flex-row p-5"><span>কোর্সটি সম্পর্কে বিস্তারিত জানতে</span><span className="flex items-center justify-center ml-2 underline cursor-pointer text-green"><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg> <span className="ml-1">ফোন করুন (16910)</span></span></p>
+                <p className="justify-between hidden mt-4 text-sm text-center text-gray-400 md:flex md:flex-col lg:flex lg:flex-row p-5"><span>কোর্সটি সম্পর্কে বিস্তারিত জানতে</span><span className="flex items-center justify-center ml-2 underline cursor-pointer text-green-300"><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg> <span className="ml-1 ">ফোন করুন (16910)</span></span></p>
             </div>
-            
+
         </div>
     );
 };

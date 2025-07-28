@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Banner from '../component/coursedetails/Banner';
 import Instractor from '../component/coursedetails/instructor/Instractor';
 import Features from '../component/coursedetails/features/Features';
@@ -8,12 +8,14 @@ import CourseDetailsCollaspe from '../component/coursedetails/course_details/Cou
 import FeatureExplanations from '../component/coursedetails/feature_explanations/FeatureExplanations';
 import Testimonials from '../component/coursedetails/testimonials/Testimonials';
 import Faq from '../component/coursedetails/faq/Faq';
+import { AuthContext } from '../provider/AuthProvider';
 
 const CourseDetails = () => {
     const [course, setCourse] = useState(null);
+    const { lang } = useContext(AuthContext)
     useEffect(() => {
         fetch(
-            "https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course?lang=bn",
+            `https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course?lang=${lang}`,
             {
                 headers: {
                     "X-TENMS-SOURCE-PLATFORM": "web",
@@ -28,21 +30,21 @@ const CourseDetails = () => {
             .catch((error) => {
                 console.error("Error fetching course data:", error);
             });
-    }, []);
+    }, [lang]);
 
     let tabs = [];
     const [activeTab, setActiveTab] = useState([]);
     if (!course) return <div className="text-white p-6">Loading...</div>;
     tabs = course.sections.filter(item => item.name && item.values.length > 0).map(item => ({ name: item.name, type: item.type }))
 
-    console.log(activeTab)
     return (
         <div >
             <Banner course={course}></Banner>
             {/* scrollable tab */}
             <div className='sticky top-16 z-50 bg-white border-b ml-32 gap-5 w-[50vw] carousel'>
-                {tabs.map((tab) => (
+                {tabs.map((tab, idx) => (
                     <a
+                        key={idx}
                         href={`#${tab.type}`}
                         className="btn border-green-300 m-2 btn-s px-2 carousel-item"
                     >
