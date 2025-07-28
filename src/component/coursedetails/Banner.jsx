@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { FaCheckCircle, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 const Banner = ({course}) => {
    
 
     return (
-        <div className="bg-gradient-to-b from-[#0d0829] to-[#130c41] text-white py-10 px-6 md:px-20 md:flex gap-5 relative h-[50vh]">
+        <div className="bg-gradient-to-b from-[#0d0829] to-[#130c41] text-white py-15 px-6 md:px-20 md:flex gap-5 relative h-[40vh]">
             {/* banner left */}
-            <div className="w-[50vw]">
+            <div className="w-[40vw] ml-20">
                 <h1 className="text-2xl sm:text-3xl font-bold mb-3">
                     {course.title}
                 </h1>
@@ -28,15 +27,15 @@ const Banner = ({course}) => {
                 />
             </div>
             {/* banner right */}
-            <div className="w-full lg:w-[40vw] bg-white rounded-xl overflow-hidden shadow-md md:absolute right-10 ">
+            <div className="w-full lg:w-[30vw] p-1 bg-white overflow-hidden shadow-md md:absolute right-28 ">
                 <div>
-                    <div className="carousel w-full h-[300px] rounded overflow-hidden">
+                    <div className="carousel w-full h-[250px] rounded overflow-hidden">
                         {course.media.map((item, index) => (
                             <div id={`item${index + 1}`} key={index} className="carousel-item w-full justify-center">
                                 {item.resource_type === "video" ? (
                                     <iframe
                                         className="w-full aspect-video rounded"
-                                        src={`https://www.youtube.com/embed/${item.resource_value}?autoplay=1&mute=1`}
+                                        src={`https://www.youtube.com/embed/${item.resource_value}?autoplay=0&mute=1`}
                                         title={`Video ${index + 1}`}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
@@ -61,11 +60,11 @@ const Banner = ({course}) => {
                                 title={`Go to Slide ${index + 1}`}
                             >
                                 <img
-                                    className="w-[48px] h-[48px] object-cover rounded"
+                                    className="w-[40px] h-[30px] object-cover rounded hover:w-[60px] hover:h-[60px]"
                                     src={
                                         item.resource_type === "video"
                                             ? item.thumbnail_url
-                                            : item.thumbnail_url || item.resource_value
+                                            : item.resource_value
                                     }
                                     alt={`Thumbnail ${index + 1}`}
                                 />

@@ -4,7 +4,7 @@ const GroupJoinEngagement = ({ data }) => {
 
   return (
     <div
-      className="flex gap-4 p-4 overflow-hidden md:p-8 rounded-xl"
+      className="flex gap-4 p-4 overflow-hidden bg-black md:p-8"
       style={{
         backgroundImage: `url(${data.background.image})`,
         backgroundSize: 'cover',

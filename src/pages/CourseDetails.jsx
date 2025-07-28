@@ -6,6 +6,10 @@ import GroupJoinEngagement from '../component/coursedetails/group_join_engagemen
 import Pointers from '../component/coursedetails/pointers/Pointers';
 import ContentPreview from '../component/coursedetails/content_preview/ContentPreview';
 import CourseDetailsCollaspe from '../component/coursedetails/course_details/CourseDetailsCollaspe';
+import FeatureExplanations from '../component/coursedetails/feature_explanations/FeatureExplanations';
+import FreeItems from '../component/coursedetails/free_items/FreeItems';
+import Testimonials from '../component/coursedetails/testimonials/Testimonials';
+import Faq from '../component/coursedetails/faq/Faq';
 
 const CourseDetails = () => {
     const [course, setCourse] = useState(null);
@@ -33,10 +37,11 @@ const CourseDetails = () => {
         <div>
             <Banner course={course}></Banner>
             {(course.sections).map((item, index) =>
-                item.name && <div key={index} className="p-20 xs:bg-[#EEF2F4] xs:pt-2 ">
+                item.values.length !== 0 &&
+                <div key={index} className="md:px-32 xs:bg-[#EEF2F4] xs:pt-2 ">
                     <div className="pt-4 pb-2 bg-white">
                         <h2 className="mb-4 text-xl font-semibold md:text-2xl">{item.name}</h2>
-                        <div className="flex items-center md:rounded-md md:border w-[50vw] ">
+                        <div className="flex items-center w-[50vw] ">
 
                             {item.type === "instructors" && item.values.map((data, idx) => <Instractor key={idx} data={data}></Instractor>)}
 
@@ -56,10 +61,20 @@ const CourseDetails = () => {
                             {item.type === "about" && <div>
                                 {item.values.map((data, idx) => <CourseDetailsCollaspe key={idx} data={data}></CourseDetailsCollaspe>)}
                             </div>}
+                            {item.type === "feature_explanations" && <div>
+                                {item.values.map((data, idx) => <FeatureExplanations key={idx} data={data}></FeatureExplanations>)}
+                            </div>}
+                            {item.type === "testimonials" && <div className="carousel rounded-box">
+                                {item.values.map((data, idx) => <Testimonials key={idx} data={data}></Testimonials>)}
+                            </div>}
+                            {item.type === "faq" && <div>
+                                {item.values.map((data, idx) => <Faq key={idx} data={data}></Faq>)}
+                            </div>}
                         </div>
 
                     </div>
-                </div>)}
+                </div>
+            )}
 
         </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Instructor = ({ data }) => {
   return (
-    <div className="flex items-start gap-4 p-4 pl-10  bg-white ">
+    <div className="flex items-start gap-4 p-4 pl-10 border w-full bg-white ">
       {/* Image */}
       <div className="w-20 h-20 rounded-full overflow-hidden border">
         <img

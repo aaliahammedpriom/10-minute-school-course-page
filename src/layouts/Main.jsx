@@ -4,11 +4,13 @@ import Navbar from '../component/navbar/Navbar';
 
 const Main = () => {
     return (
-        <div>
-            <div className='lg:mx-[8vw]'>
+        <div className='relative'>
+            <div className='w-full fixed z-10'>
                 <Navbar></Navbar>
             </div>
-            <Outlet></Outlet>
+            <div className='pt-[60px]'>
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };
