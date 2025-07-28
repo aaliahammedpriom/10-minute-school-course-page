@@ -41,12 +41,12 @@ const CourseDetails = () => {
         <div >
             <Banner course={course}></Banner>
             {/* scrollable tab */}
-            <div className='sticky top-16 z-50 bg-white border-b ml-32 gap-5 w-[50vw] carousel'>
+            <div className='sticky top-16 z-50 carousel bg-white border-b w-full md:w-[44vw] xl:w-[40vw]  2xl:w-[40vw] md:ml-5 lg:ml-20 xl:ml-40 '>
                 {tabs.map((tab, idx) => (
                     <a
                         key={idx}
                         href={`#${tab.type}`}
-                        className="btn border-green-300 m-2 btn-s px-2 carousel-item"
+                        className="btn border-green-300 m-2 btn-xs md:btn-sm lg:btn-lg px-2 carousel-item"
                     >
                         {tab.name}
                     </a>
@@ -56,12 +56,12 @@ const CourseDetails = () => {
 
             {(course.sections).map((item, index) =>
                 item.values.length !== 0 &&
-                <div id={item.type} key={index} className="md:px-32 xs:bg-[#EEF2F4] xs:pt-2 scroll-mt-32 ">
-                    <div className="pt-4 pb-2 bg-white">
+                <div id={item.type} key={index} className="mx-4 md:px- xs:bg-[#EEF2F4] xs:pt-2 scroll-mt-32 ">
+                    <div className=" bg-white pt-4 lg:pl-16 xl:pl-40 pb-2 md:w-[50vw] ">
                         <h2 className="mb-4 text-xl font-semibold md:text-2xl">{item.name}</h2>
-                        <div className="flex items-center w-[50vw] ">
+                        <div className="flex items-center ">
 
-                            {item.type === "instructors" && <div >
+                            {item.type === "instructors" && <div className='w-full' >
                                 {
                                     item.values.map((data, idx) => <Instractor key={idx} data={data}></Instractor>)
                                 }
@@ -73,7 +73,7 @@ const CourseDetails = () => {
                             </div>}
 
 
-                            {item.type === "group_join_engagement" && <div >
+                            {item.type === "group_join_engagement" && <div className='w-full' >
                                 {
                                     item.values.map((data, idx) => <GroupJoinEngagement key={idx} data={data}></GroupJoinEngagement>)
                                 }
@@ -88,7 +88,7 @@ const CourseDetails = () => {
                                 {item.values.map((data, idx) => <CourseDetailsCollaspe key={idx} data={data}></CourseDetailsCollaspe>)}
                             </div>}
 
-                            {item.type === "feature_explanations" && <div >
+                            {item.type === "feature_explanations" && <div className='w-full' >
                                 {item.values.map((data, idx) => <FeatureExplanations key={idx} data={data}></FeatureExplanations>)}
                             </div>}
 

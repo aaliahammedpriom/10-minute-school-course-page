@@ -3,7 +3,7 @@ import React from 'react';
 const FeatureExplanations = ({ data }) => {
 
     return (
-        <div className="flex flex-col gap-5 p-5 md:flex-row justify-between shadow ">
+        <div className="flex flex-row gap-5 p-5  justify-between shadow ">
             <div className="flex flex-col gap-3 w-[60%]">
                 <h2 className="text-[14px] md:text-[16px] font-semibold text-[#111827]">
                     {data.title}

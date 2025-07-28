@@ -5,7 +5,7 @@ import Navbar from '../component/navbar/Navbar';
 const Main = () => {
     return (
         <div className='relative'>
-            <div className='w-full fixed z-10'>
+            <div className='w-full fixed z-100'>
                 <Navbar></Navbar>
             </div>
             <div className='pt-[60px]'>
