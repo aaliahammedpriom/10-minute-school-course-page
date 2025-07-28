@@ -4,5 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/10-minute-school-course-page/',
   plugins: [react(), tailwindcss(),],
 })
